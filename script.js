@@ -306,7 +306,7 @@ const updateNavbar = () => {
   const userInfo = getUserInfo();
   const navLinks = document.querySelector('.nav-links');
   navLinks.innerHTML = `
-    <li><a href="/star.html">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="/menu.html">Menu</a></li>
     <li><a href="/cart.html">Cart <span id="cart-count" class="cart-count-badge">0</span></a></li>
     <li><a href="/mood.html">Mood Selector</a></li>
