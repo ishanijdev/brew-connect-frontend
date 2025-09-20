@@ -7,18 +7,16 @@ This is the frontend for a complete full-stack e-commerce web application for a 
 
 
 ---
-
 ## Features
 
 * **Dynamic Product Catalog:** The menu page fetches and displays all coffee products directly from the backend API.
 * **User Authentication:** Fully-featured user registration and login system. The navbar dynamically updates based on login status.
 * **Persistent Shopping Cart:** A logged-in user's cart is saved to their database account and persists across devices.
 * **Guest Cart:** Non-logged-in users can still shop using a cart stored in local storage.
-* **Simulated Payment Flow:** A complete checkout process with options for "Card" and "Cash on Delivery" that simulates a real transaction.
+* **Simulated Payment Flow:** A complete checkout process with options for **Card** and **Cash on Delivery** that simulates a real transaction.
 * **Order History:** A dedicated profile page where logged-in users can view all their past orders.
-* **Unique Mood Recommender:** A custom page that calls a special API endpoint to filter and suggest coffees based on user-selected moods like "Happy," "Focused," or "Stressed."
-* **Responsive Design:** The layout is fully responsive and works beautifully on devices of all sizes, from mobile phones to desktops.
-
+* **Unique Mood Recommender:** A custom page that calls a special API endpoint to filter and suggest coffees based on user-selected moods.
+* **Responsive Design:** The layout is fully responsive and works beautifully on devices of all sizes.
 ---
 
 ## Tech Stack
