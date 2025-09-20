@@ -208,30 +208,41 @@ const suggestCoffee = async (mood, buttonElement) => {
   }
 };
 
+// In scripts.js - Replace your old function with this one
+
 const loadMyOrders = async () => {
   const orderList = document.getElementById('order-history-list');
-  if (!orderList) return;
+  if (!orderList) return; // Only run on profile page
 
   const userInfo = getUserInfo();
   if (!userInfo) {
-    window.location.href = 'login.html';
+    window.location.href = 'login.html'; // Redirect if not logged in
     return;
   }
+
   try {
     const response = await fetch('https://coffee-leaf-api.onrender.com/api/orders/myorders', {
         headers: { 'Authorization': `Bearer ${userInfo.token}` }
     });
     const orders = await response.json();
+
     if (orders.length === 0) {
         orderList.innerHTML = '<p>You have no past orders.</p>';
         return;
     }
+
     orderList.innerHTML = orders.map(order => `
         <div class="order-card">
             <div class="order-header">
                 <div><strong>Order ID:</strong> ${order._id}</div>
                 <div><strong>Date:</strong> ${new Date(order.createdAt).toLocaleDateString()}</div>
                 <div><strong>Total:</strong> ₹${order.totalPrice.toFixed(2)}</div>
+                
+                <div>
+                    <strong>Status:</strong> 
+                    <span class="status-${order.status.toLowerCase()}">${order.status}</span>
+                </div>
+
             </div>
             <div class="order-body">
                 ${order.orderItems.map(item => `
@@ -400,6 +411,7 @@ const handlePaymentSubmit = async (event) => {
   }
 };
 
+// In scripts.js - REPLACE the placeOrder function
 const placeOrder = async (paymentMethod) => {
   const userInfo = getUserInfo();
   if (!userInfo) return alert('Please log in to place an order.');
@@ -420,20 +432,14 @@ const placeOrder = async (paymentMethod) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${userInfo.token}` },
       body: JSON.stringify({
-        orderItems: cartItems,
-        shippingAddress: location,
-        paymentMethod: paymentMethod,
-        totalPrice: totalPrice,
+        orderItems: cartItems, shippingAddress: location,
+        paymentMethod: paymentMethod, totalPrice: totalPrice,
       }),
     });
     
-    if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || `Server responded with status: ${res.status}`);
-    }
-
     const { createdOrder, clientSecret } = await res.json();
-    
+    if (!res.ok) throw new Error(createdOrder.message || 'Failed to create order');
+
     if (paymentMethod === 'Cash on Delivery') {
       alert('Order placed successfully!');
       window.location.href = 'profile.html';
@@ -444,9 +450,19 @@ const placeOrder = async (paymentMethod) => {
       const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: { card: cardElement, billing_details: { name: userInfo.name } },
       });
-      if (error) throw new Error(error.message);
+      
+      if (error) {
+        // --- NEW: TELL BACKEND THE PAYMENT FAILED ---
+        await fetch(`https://coffee-leaf-api.onrender.com/api/orders/${createdOrder._id}/fail`, {
+            method: 'PUT',
+            headers: { 'Authorization': `Bearer ${userInfo.token}` }
+        });
+        throw new Error(error.message); // Show the error from Stripe
+      }
+      
       if (paymentIntent.status === 'succeeded') {
-          alert('Payment successful and order placed!');
+          // The webhook will handle the success, just redirect the user
+          alert('Payment successful! Your order is being confirmed.');
           window.location.href = 'profile.html';
       }
     }
