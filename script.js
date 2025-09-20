@@ -281,7 +281,7 @@ const handleRegister = async (event) => {
     const data = await response.json();
     if (!response.ok) throw new Error(data.message);
     localStorage.setItem('userInfo', JSON.stringify(data));
-    window.location.href = 'star.html';
+    window.location.href = 'index.html';
   } catch (error) {
     alert(`Registration failed: ${error.message}`);
   }
@@ -300,7 +300,7 @@ const handleLogin = async (event) => {
     const data = await response.json();
     if (!response.ok) throw new Error(data.message);
     localStorage.setItem('userInfo', JSON.stringify(data));
-    window.location.href = 'star.html';
+    window.location.href = 'index.html';
   } catch (error) {
     alert(`Login failed: ${error.message}`);
   }
