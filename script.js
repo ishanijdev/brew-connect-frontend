@@ -50,7 +50,7 @@ const addToCart = async (product) => {
 
   if (userInfo) {
     try {
-      const response = await fetch('http://localhost:5000/api/cart', {
+      const response = await fetch('https://coffee-leaf-api.onrender.com/api/cart', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${userInfo.token}` },
         body: JSON.stringify({ productId: product._id, quantity: 1 }),
@@ -83,7 +83,7 @@ const loadCart = async () => {
 
   if (userInfo) {
     try {
-      const response = await fetch('http://localhost:5000/api/cart', {
+      const response = await fetch('https://coffee-leaf-api.onrender.com/api/cart', {
         headers: { 'Authorization': `Bearer ${userInfo.token}` },
       });
       cartItems = await response.json();
@@ -103,7 +103,7 @@ const removeItem = async (productId) => {
 
   if (userInfo) {
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/${productId}`, {
+      const response = await fetch(`https://coffee-leaf-api.onrender.com/api/cart/${productId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${userInfo.token}` },
       });
@@ -127,7 +127,7 @@ const clearCart = async () => {
         const userInfo = getUserInfo();
         if (userInfo) {
             try {
-                const response = await fetch('http://localhost:5000/api/cart', {
+                const response = await fetch('https://coffee-leaf-api.onrender.com/api/cart', {
                     method: 'DELETE',
                     headers: { 'Authorization': `Bearer ${userInfo.token}` },
                 });
@@ -148,7 +148,7 @@ const loadMenuProducts = async () => {
   const menuGrid = document.querySelector('.menu-grid');
   if (!menuGrid) return;
   try {
-    const response = await fetch('http://localhost:5000/api/products');
+    const response = await fetch('https://coffee-leaf-api.onrender.com/api/products');
     const products = await response.json();
     menuGrid.innerHTML = '';
     products.forEach(product => {
@@ -183,7 +183,7 @@ const suggestCoffee = async (mood, buttonElement) => {
   resultsGrid.innerHTML = '<p>Finding the perfect coffee for you...</p>';
 
   try {
-    const response = await fetch(`http://localhost:5000/api/products/mood/${mood}`);
+    const response = await fetch(`https://coffee-leaf-api.onrender.com/api/products/mood/${mood}`);
     const recommendedProducts = await response.json();
     resultsGrid.innerHTML = '';
     if (recommendedProducts.length === 0) {
@@ -218,7 +218,7 @@ const loadMyOrders = async () => {
     return;
   }
   try {
-    const response = await fetch('http://localhost:5000/api/orders/myorders', {
+    const response = await fetch('https://coffee-leaf-api.onrender.com/api/orders/myorders', {
         headers: { 'Authorization': `Bearer ${userInfo.token}` }
     });
     const orders = await response.json();
@@ -262,7 +262,7 @@ const handleRegister = async (event) => {
     alert('Passwords do not match!'); return;
   }
   try {
-    const response = await fetch('http://localhost:5000/api/users/register', {
+    const response = await fetch('https://coffee-leaf-api.onrender.com/api/users/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password }),
@@ -281,7 +281,7 @@ const handleLogin = async (event) => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   try {
-    const response = await fetch('http://localhost:5000/api/users/login', {
+    const response = await fetch('https://coffee-leaf-api.onrender.com/api/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -379,7 +379,7 @@ const initializePaymentForm = async () => {
   });
 
   try {
-    const { publishableKey } = await fetch('http://localhost:5000/api/config/stripe').then(res => res.json());
+    const { publishableKey } = await fetch('https://coffee-leaf-api.onrender.com/api/config/stripe').then(res => res.json());
     stripe = Stripe(publishableKey);
     const elements = stripe.elements();
     cardElement = elements.create('card');
@@ -407,7 +407,7 @@ const placeOrder = async (paymentMethod) => {
   const location = document.getElementById("location").value;
   if (!location) return alert("Please enter your delivery location.");
 
-  const cartResponse = await fetch('http://localhost:5000/api/cart', {
+  const cartResponse = await fetch('https://coffee-leaf-api.onrender.com/api/cart', {
       headers: { 'Authorization': `Bearer ${userInfo.token}` }
   });
   const cartItems = await cartResponse.json();
@@ -416,7 +416,7 @@ const placeOrder = async (paymentMethod) => {
   const totalPrice = cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
 
   try {
-    const res = await fetch('http://localhost:5000/api/orders', {
+    const res = await fetch('https://coffee-leaf-api.onrender.com/api/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${userInfo.token}` },
       body: JSON.stringify({
