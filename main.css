@@ -26,9 +26,10 @@ body {
 }
 
 .navbar-logo {
-    max-height: 40px; /* Adjust this value to make your logo bigger or smaller */
+    max-height: 50px; /* Adjust this value to make your logo bigger or smaller */
     margin-right: 10px; /* Space between logo image and text */
     vertical-align: middle; /* Align with text */
+    border-radius: 50%;
 }
 
 /* You might want to adjust the existing .logo styling if needed */
