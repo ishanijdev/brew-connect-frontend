@@ -1,7 +1,7 @@
 <h1 align="center">Bréw Connect - E-Commerce Frontend</h1>
 
 <p align="center">
-  <img src="logo2-1.png" alt="Bréw Connect Logo" width="150">
+  <img src="logo2.png" alt="Bréw Connect Logo" width="150">
 </p>
 
 ---
