@@ -1,4 +1,4 @@
-# ![alt text](logo2.png) Bréw Connect - E-Commerce Frontend
+# ![alt text](logo2-1.png) Bréw Connect - E-Commerce Frontend
 
 This is the frontend for a complete full-stack e-commerce web application for a fictional coffee brand. It features a modern, responsive user interface and connects to a custom-built backend API to manage products, users, and orders.
 
