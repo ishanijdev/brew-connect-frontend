@@ -1,4 +1,4 @@
-# ☕ Bréw Connect - E-Commerce Frontend
+# ![alt text](logo2.png) Bréw Connect - E-Commerce Frontend
 
 This is the frontend for a complete full-stack e-commerce web application for a fictional coffee brand. It features a modern, responsive user interface and connects to a custom-built backend API to manage products, users, and orders.
 
@@ -33,11 +33,13 @@ To run this project locally:
 
 1.  Clone the repository:
     ```bash
-    git clone [https://github.com/ishanijdev/coffee-leaf-frontend.git](https://github.com/ishanijdev/coffee-leaf-frontend.git)
+    git clone https://github.com/ishanijdev/coffee-leaf-frontend.git
     ```
-2.  Navigate into the project directory:
-    ```bash
-    cd coffee-leaf-frontend
-    ```
-3.  Open the `index.html` file in your browser (the VS Code "Live Server" extension is recommended).
-4.  **Note:** This frontend requires the [backend server](https://github.com/ishanijdev/coffee-leaf-backend) to be running locally for API calls to work.
+2.  Open the `index.html` file in your browser (the VS Code "Live Server" extension is recommended).
+3.  **Note:** This frontend requires the [backend server](https://github.com/ishanijdev/coffee-leaf-backend) to be running locally for API calls to work.
+
+---
+
+## License 
+
+This project is open-source and free to use for educational purposes.
