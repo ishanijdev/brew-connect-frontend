@@ -1,4 +1,10 @@
-# ![alt text](logo2-1.png) Bréw Connect - E-Commerce Frontend
+<h1 align="center">Bréw Connect - E-Commerce Frontend</h1>
+
+<p align="center">
+  <img src="logo2-1.png" alt="Bréw Connect Logo" width="150">
+</p>
+
+---
 
 This is the frontend for a complete full-stack e-commerce web application for a fictional coffee brand. It features a modern, responsive user interface and connects to a custom-built backend API to manage products, users, and orders.
 
