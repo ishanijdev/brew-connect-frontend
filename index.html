@@ -36,26 +36,47 @@
 <section class="combo-section">
   <h2>✨ Special Combo Offers</h2>
   <div class="combo-grid">
+    
     <div class="combo-card">
-      <img src="/images/espresso.webp" alt="Morning Boost Pack">
-      <h3>Morning Boost Pack</h3>
-      <p>Includes: Espresso + Cold Brew</p>
-      <span class="price">₹249 <del>₹300</del></span>
-      <button onclick="addToCart('Morning Boost Pack', 249, '/images/espresso.webp')">Add to Cart</button>
+      <span class="sale-badge">BESTSELLER</span>
+      <img src="/images/cappuccino-croissant.png" alt="Cappuccino and Croissant">
+      <h3>Morning Classic</h3>
+      <p>Includes: Cappuccino + Butter Croissant</p>
+      <div class="price-container">
+        <span class="price">₹259</span>
+        <del>₹310</del>
+      </div>
+      <button onclick='addToCart({ "_id": "combo1", "name": "Morning Classic", "price": 259, "imageUrl": "/images/cappuccino-croissant.jpg" })'>
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+      </button>
     </div>
+    
     <div class="combo-card">
-      <img src="/images/latte.jpg" alt="Choco Love Combo">
-      <h3>Choco Love Combo</h3>
-      <p>Includes: Mocha + Latte</p>
-      <span class="price">₹269 <del>₹320</del></span>
-      <button onclick="addToCart('Choco Love Combo', 269, '/images/latte.jpg')">Add to Cart</button>
+      <span class="sale-badge">SWEET DEAL</span>
+      <img src="/images/mocha-muffin.png" alt="Mocha and Chocolate Muffin">
+      <h3>Sweet Treat Combo</h3>
+      <p>Includes: Mocha + Chocolate Muffin</p>
+      <div class="price-container">
+        <span class="price">₹289</span>
+        <del>₹340</del>
+      </div>
+      <button onclick='addToCart({ "_id": "combo2", "name": "Sweet Treat Combo", "price": 289, "imageUrl": "/images/mocha-muffin.jpg" })'>
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+      </button>
     </div>
+
     <div class="combo-card">
-      <img src="/images/greentea.webp" alt="Relax & Refresh">
-      <h3>Relax & Refresh</h3>
-      <p>Includes: Green Tea + Cappuccino</p>
-      <span class="price">₹239 <del>₹290</del></span>
-      <button onclick="addToCart('Relax & Refresh', 239, '/images/greentea.webp')">Add to Cart</button>
+      <span class="sale-badge">COZY UP</span>
+      <img src="/images/latte-bananabread.png" alt="Latte and Banana Bread">
+      <h3>Afternoon Break</h3>
+      <p>Includes: Latte + Banana Bread Slice</p>
+      <div class="price-container">
+        <span class="price">₹279</span>
+        <del>₹330</del>
+      </div>
+      <button onclick='addToCart({ "_id": "combo3", "name": "Afternoon Break", "price": 279, "imageUrl": "/images/latte-bananabread.jpg" })'>
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+      </button>
     </div>
   </div>
 </section>
