@@ -8,7 +8,7 @@
 
 This is the frontend for a complete full-stack e-commerce web application for a fictional coffee brand. It features a modern, responsive user interface and connects to a custom-built backend API to manage products, users, and orders.
 
-**Live Demo:** [https://coffee-leaf-frontend.vercel.app/](https://coffee-leaf-frontend.vercel.app/) 
+**Live Demo:** [https://brewconnect.vercel.app/](https://brewconnect.vercel.app/) 
 
 
 
@@ -39,10 +39,10 @@ To run this project locally:
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/ishanijdev/coffee-leaf-frontend.git
+    git clone https://github.com/ishanijdev/brew-connect-frontend.git
     ```
 2.  Open the `index.html` file in your browser (the VS Code "Live Server" extension is recommended).
-3.  **Note:** This frontend requires the [backend server](https://github.com/ishanijdev/coffee-leaf-backend) to be running locally for API calls to work.
+3.  **Note:** This frontend requires the [backend server](https://github.com/ishanijdev/Brew-connect-backend) to be running locally for API calls to work.
 
 ---
 
